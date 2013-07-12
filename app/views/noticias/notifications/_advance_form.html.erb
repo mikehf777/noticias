@@ -1,0 +1,15 @@
+  <div class="alerta"></div>
+<%= simple_form_for([ :noticias, @note],remote: :true,html: { class: "advance_form" }) do |f| %>
+  <div class="form-inputs">
+    <%= f.input :titulo , spellcheck: "true" %>
+    <%= f.input :avance,spellcheck: "true"%>
+    <%= f.hidden_field :source_id, value: current_user.source_id %>
+    <%= f.hidden_field :plaza_id, value: current_user.plaza_id %>
+    <%= f.hidden_field :camarografo_id, value: current_user.camarografo_id %>
+    <%= f.hidden_field :notification_id, value: @notification.id %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit, :class => "btn-primary" %>
+  </div>
+<% end %>
+

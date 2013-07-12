@@ -1,0 +1,6 @@
+ <% if current_user.has_role? :jefe_de_informacion %>
+<%= render "layouts/noticas/usuarios/jefe-de-informacion" %>
+<% end %>
+<% if current_user.has_role? :reportero %>
+<%= render "layouts/noticas/usuarios/reportero" %>
+<% end %>

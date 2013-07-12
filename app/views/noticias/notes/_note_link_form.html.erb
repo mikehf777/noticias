@@ -1,0 +1,6 @@
+  <div class="alerta"></div>
+<%= simple_form_for([ :noticias, @note], remote: :true)  do |f| %>
+  <%= f.input :titulo_periodico %>
+  <%= f.input :link %> 
+    <%= f.button :submit,"Guardar Nota", :class => "btn-primary"%>
+<% end %>

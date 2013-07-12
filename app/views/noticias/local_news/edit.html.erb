@@ -1,0 +1,13 @@
+<div class="page-header">
+  <%= link_to local_news_index_path, :class => 'btn' do %>
+    <i class="icon-list-alt"></i>
+    Back
+  <% end %>
+  <%= link_to @local_news, :class => 'btn btn-primary' do %>
+    <i class="icon-info-sign icon-white"></i>
+    Show
+  <% end %>
+  <h1>Editing local_news</h1>
+</div>
+
+<%= render 'form' %>

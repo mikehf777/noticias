@@ -1,0 +1,15 @@
+<h1>Nuevo Avance</h1>
+<div class="alerta"></div>
+<%= simple_form_for [ :noticias, @note], remote: :true do |f| %>
+  <div class="form-inputs">
+    <%= f.association :source, selected: current_user.source_id %>
+    <%= f.input :titulo , spellcheck: "true" %>
+    <%= f.input :avance,spellcheck: "true"%>
+    <%= f.hidden_field :plaza_id, value: current_user.plaza_id %>
+    <%= f.hidden_field :camarografo_id, value: current_user.camarografo_id %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit, :class => "btn-primary" %>
+  </div>
+<% end %>
+

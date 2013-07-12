@@ -1,0 +1,25 @@
+  <div class="page-header">
+  <h1>Tus Notificaciones</h1>
+</div>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Titulo</th>
+      <th>Descripcion</th>
+      <th>Prioridad</th>
+      <th>Opciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+<% @notifications.each do |notification| %>
+    <tr>
+      <td><%= notification.title %></td>
+      <td><%= notification.description %></td>
+      <td><%= notification.piority if notification.piority %></td>
+      <td><%= link_to 'Crear Avance', noticias_notification_path(notification) %></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>

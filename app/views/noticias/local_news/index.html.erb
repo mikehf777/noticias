@@ -1,0 +1,35 @@
+<div class="page-header">
+  <%= link_to new_noticias_local_news_path, :class => 'btn btn-primary' do %>
+    <i class="icon-plus icon-white"></i>
+    Nuevo Noticiero
+  <% end %>
+  <h1>Ultimos Noticieros Locales</h1>
+</div>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Emision</th>
+      <th>Fecha</th>
+      <th>Conductor</th>
+      <th>Opciones</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+<% @local_news.each do |local_news| %>
+    <tr>
+      <td><%= local_news.emision %></td>
+      <td><%= local_news.fecha %></td>
+      <td><%= local_news.user.name if local_news.user_id %></td>
+      <td>
+        <%= link_to 'Termina Noticiero', termina_noticiero_noticias_local_news_path(local_news),class: "btn btn-primary" %>
+        <%= link_to 'Ver', noticias_local_news_path(local_news),class: "btn btn-primary" %>
+      <%= link_to 'Editar', edit_noticias_local_news_path(local_news),class: "btn btn-primary" %>
+      <%= link_to 'Eliminar', noticias_local_news_path(local_news),class: "btn btn-primary", confirm: '¿Estas Seguro?', method: :delete %></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>

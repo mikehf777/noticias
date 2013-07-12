@@ -1,0 +1,47 @@
+<h1>Noticiero Local <%= @local_news.id %></h1>
+<table class="table table-bordered table-striped">
+  <tbody>
+    <tr>
+    <th>Emision</th>
+    <td><%= @local_news.emision if @local_news.emision %></td>
+    </tr>
+    <th>Fecha</th>
+    <td><%= @local_news.fecha if @local_news.fecha %></td>
+    </tr>
+    <th>Conductor</th>
+    <td><%= @local_news.user.name if @local_news.user_id %></td>
+    </tr>
+    <th>Plaza</th>
+    <td><%=   @local_news.plaza.name if @local_news.plaza_id %></td>
+    </tr>
+  </tbody>
+</table>
+<%= simple_form_for([:noticias,@local_news], :defaults => { :input_html => { :class => 'input-xxlarge' } }) do |f| %>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Prioridad</th>
+      <th>Titulo</th>
+      <th>Opciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+<% @local_news.notes_messages.prioridad.each do |n| %>
+    <tr id="<%= dom_id(n) %>" >
+    <% if n.note %>
+      <td><%= n.priority %></td>
+      <td><%= n.note.titulo %></td>
+      <% else %>
+      <td><%= n.priority %></td>
+      <td><%= n.message.title %></td>
+      <% end %>  
+    <td> <%= modal_link("Agregar Mensaje",messages_noticias_local_news_path(n),"btn btn-primary") %></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+<div class="form-actions">
+    <%= f.button :submit, :class => "btn-primary" %>
+  </div>
+<% end %>

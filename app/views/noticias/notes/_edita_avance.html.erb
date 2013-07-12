@@ -1,0 +1,12 @@
+  <h1>Editar Avance </h1>
+  <div class="alerta"></div>
+<%= simple_form_for [ :noticias, @note],:url => update_avance_noticias_note_path(@note),remote: :true do |f| %>
+  <div class="form-inputs">
+    <%= f.input :titulo , spellcheck: "true" %>
+    <%= f.input :avance,spellcheck: "true"%>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit, :class => "btn-primary" %>
+  </div>
+<% end %>
+

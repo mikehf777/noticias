@@ -1,0 +1,29 @@
+ <h1>Mensajes</h1>
+</div>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Titulo</th>
+      <th>Opciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+<% @messages.each_with_index do |message,i| %>
+    <tr>
+      <% a =  rand(30) %>
+      <td><%= i %></td>
+      <td><%= message.title %>
+      <%= hidden_field_tag "local_news[notes_messages_attributes][#{a}][message_id]",message.id %>
+      <%= hidden_field_tag "local_news[notes_messages_attributes][#{a}][priority]",@notes_messages.priority.to_f + 0.1 %>
+      </td>
+      <td><%= content_tag :a,:class => 'btn btn-primary agregar' do %>
+        <i class="icon-plus">Agregar</i>
+      <% end %></td>
+      
+    </tr>
+<% end %>
+  </tbody>
+</table>

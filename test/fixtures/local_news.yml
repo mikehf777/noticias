@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  emision: MyString
+  fecha: 2013-06-19
+  user_id: 1
+
+two:
+  emision: MyString
+  fecha: 2013-06-19
+  user_id: 1

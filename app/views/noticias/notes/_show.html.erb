@@ -1,0 +1,19 @@
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Titulo</th>
+      <th>Avance</th>
+      <th>Opciones<th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td><%= @note.titulo %></td>
+      <td><%= @note.avance %></td>
+      <td><%= modal_link("Editar", edita_avance_noticias_note_path(@note),"btn btn-primary")%></td>
+    </tr>
+  </tbody>
+</table>
+<%= render 'note_form'%>
+

@@ -1,0 +1,10 @@
+<h1>Notas por Plaza</h1>
+<ul class="nav nav-tabs">
+  <% @plazas.each do |p| %>
+  <li><%= link_to "#{p.name}", notes_by_plaza_noticias_note_path(p), remote: :true, class: "tab" %></li>
+  <% end %>
+</ul>
+<div class="tab-content">
+<div class="well"></div>
+</div>
+

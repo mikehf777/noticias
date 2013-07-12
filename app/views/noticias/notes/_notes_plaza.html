@@ -1,0 +1,26 @@
+
+<table id="dinamica" class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Titulo</th>
+      <th>Avance</th>
+      <th>Link</th>
+      <th>Titulo Periodico</th>
+      <th>Opciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+<% @notes.each do |note| %>
+    <tr>
+      <td><%= note.id %></td>
+      <td><%= note.titulo %></td>
+      <td><%= note.avance %></td>
+      <td><%= note.link if note.link %> </td>
+      <td><%= note.titulo_periodico if note.titulo_periodico %>
+      <td><%= modal_link('Ver', show_note_noticias_note_path(note), 'btn btn-primary') %></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>

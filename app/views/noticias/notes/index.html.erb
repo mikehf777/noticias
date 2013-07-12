@@ -1,0 +1,12 @@
+<h1>Notas Pendientes</h1>
+<ul class="nav nav-tabs" id="tabs">
+  <% @notes.each do |p| %>
+  <% if p.content == "" or p.content == nil %>
+    <li><%= link_to "#{p.titulo}", noticias_note_path(p), remote: :true, class: "tab" %></li> 
+   <% end %>
+  <% end %>
+</ul>
+<div class="tab-content">
+<div class="well"></div>
+</div>
+

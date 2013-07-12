@@ -1,0 +1,26 @@
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Titulo</th>
+      <th>Descripcion</th>
+      <th>Prioridad</th>
+      <th>Notificador</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td><%= @notification.title %></td>
+      <td><%= @notification.description %></td>
+      <td><%= @notification.piority %></td>
+      <td><%= usuario(@notification.user_id) if @notification.user_id %></td>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<% if @notification.realizada == false %>
+<%= render 'advance_form'%>
+<% else %>
+<div class="alert alert-success">Esta comisión ya ha sido realizada</div>
+<% end %>

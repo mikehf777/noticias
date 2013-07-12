@@ -1,0 +1,12 @@
+<li class="dropdown header-border">
+	<% @notificaciones = notified(current_user) %>
+	<% if @notificaciones %>
+	<%= num_alerts(@notificaciones.count) %>
+	<ul class="dropdown-menu block-dark messages">
+	<li class="view-all"><a href="#">Tareas Pendientes</a></li> 
+	<% @notificaciones.each do |n| %>
+	<li><%= mensages(noticias_notification_path(n),n.title,n.description,"7") %><li>
+	<% end %> 
+	<% end %>                                 
+	</ul>
+</li>

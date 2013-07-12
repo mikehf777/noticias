@@ -1,0 +1,12 @@
+<div class="nav-collapse subnav-collapse collapse ">
+			<%= menu("Comisiones",comisiones_recibidas_noticias_notifications_path,"#") %>
+			<%= toggle_menu("Avances","#rmenu","#") %>
+	        <ul id="rmenu" class="nav nav-list collapse">
+	            <li><%= menu("Crear Avance",new_noticias_note_path,"#") %></li>
+	        </ul>    
+	        <%= toggle_menu("Notas","#nmenu","#") %>
+	        <ul id="nmenu" class="nav nav-list collapse">
+	            <li><%= menu("Notas Pendientes",noticias_notes_path,"#") %></li>
+	            <li><%= menu("Notas Terminadas",notas_terminadas_noticias_notes_path,"#") %></li>
+	        </ul> 
+</div>	

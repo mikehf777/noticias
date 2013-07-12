@@ -1,0 +1,31 @@
+<h1>Notas Terminadas</h1>
+</div>
+<div class="alerta"></div>
+<table id="dinamica" class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>Titulo</th>
+      <th>Contenido</th>
+      <th>Opciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+<% @notes.each do |note| %>
+    <% if note.content %>
+    <tr>
+      <td><%= note.id %></td>
+      <td><%= note.titulo %></td>
+      <td><%= note.content %></td>
+      <td>
+      <%= modal_link("Ver", note_finalizada_noticias_note_path(note),"btn btn-primary")%>
+      <%= modal_link("Editar", edit_noticias_note_path(note),"btn btn-primary")%>
+      <%= link_to 'Eliminar', noticias_note_path(note), class: 'btn btn-primary' , confirm: '¿Estas Seguro?', method: :delete %>
+       </td>
+    </tr>
+    <% end %>
+
+<% end %>
+  </tbody>
+</table>

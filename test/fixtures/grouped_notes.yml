@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  plaza_id: 1
+  note_id: 1
+
+two:
+  plaza_id: 1
+  note_id: 1

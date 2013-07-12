@@ -1,0 +1,39 @@
+<h1> Nuevo Noticiero Local </h1>
+<%= simple_form_for([:noticias,@local_news], :defaults => { :input_html => { :class => 'input-xxlarge' } }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :emision , collection: [ "Mañana", "Tarde", "Noche"],prompt: "Selecciona la emision"%>
+    <%= f.label :user_id , label: 'Conductor'%>
+    <%= f.hidden_field :plaza_id , value: current_user.plaza_id %>
+    <div class="controls">
+    <%= f.select :user_id , User.plaza(current_user.plaza_id).with_role(:conductor).map { |r| [r.name, r.id]}%>
+  </div>
+  </div>
+  <div class="row">
+   <% @notes.each_with_index do |n,i| %>
+   <div class="span4">
+   	<h3><%= n.titulo %><div class="num"></div></h3>
+   	<p><%= hidden_field_tag "local_news[notes_messages_attributes][#{i}][note_id]",n.id %>
+   	<p><%= hidden_field_tag "local_news[notes_messages_attributes][#{i}][priority]","0",class: "prioridad", id: "changer" %></p>	
+   	<p><%= n.source.name if n.source_id %></p>
+   	<p><%= n.avance.truncate(200)%></p>
+      <div class="atr">
+      <%= content_tag :a,:class => 'btn btn-primary menos' do %>
+        <i class="icon-minus icon-2x"></i>
+      <% end %>
+    </div>
+    <div class="adt"> 
+      <%= content_tag :a, :class => 'btn btn-primary mas' do %>
+       <i class="icon-plus icon-2x"></i>
+        <% end %>
+    </div>
+
+  </div>
+   <% end %>
+</div>
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => "btn-primary" %>
+  </div>
+<% end %>

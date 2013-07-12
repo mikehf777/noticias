@@ -1,0 +1,13 @@
+<%= simple_form_for([:noticias,@local_news], :defaults => { :input_html => { :class => 'input-xxlarge' } }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :emision %>
+    <%= f.input :fecha %>
+    <%= f.input :user_id %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => "btn-primary" %>
+  </div>
+<% end %>

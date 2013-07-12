@@ -1,0 +1,18 @@
+<div id="role-options-<%= user.id %>" class="modal" style="display: none;">
+  <%= simple_form_for user, :url => noticias_user_path(user), :html => {:method => :put, :class => 'form-horizontal' } do |f| %>
+    <div class="modal-header">
+      <a class="close" data-dismiss="modal">&#215;</a>
+      <h3>Cambiar Rol</h3>
+    </div>
+    <h2>Sistema de Noticas </h2>
+    <div class="modal-body">
+      <div class="well">
+      <%= f.association :roles, as: :check_boxes %>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <%= f.submit "Cambiar Rol", :class => "btn" %>
+      <a class="btn" data-dismiss="modal" href="#">Cerrar</a>
+    </div>
+  <% end %>
+</div>

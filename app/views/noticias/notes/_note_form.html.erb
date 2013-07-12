@@ -1,0 +1,17 @@
+  <div class="alerta"></div>
+<%= simple_form_for [ :noticias, @note], remote: :true do |f| %>
+  <div class="form-inputs">
+  	<%= f.label :camarografo_id ,  label: 'Camarografo'  %>
+  	<%= f.select :camarografo_id, User.plaza(current_user.plaza_id).with_role(:camarografo).map { |r| [r.name, r.id] },selected: current_user.camarografo_id %>
+    <%= f.association :source , selected: current_user.source_id , label: 'Fuente' %>
+    <%= f.input :anuario ,label: "Anuario",hint: "Marca si la consideras para anuario" %>
+   </div>
+  
+   <h3 class="titulo">Numero de lineas de la nota:<div class="titulo big" id= "nota_count"></div></h3>
+   <h3 class="titulo">Numero de lineas del inserto:<div class="titulo big" id= "inserto_count"></div></h3>
+   <div>
+    <%= f.input_field :content,  class: 'nota', id: "nota" ,placeholder: 'Escribe aqui tu nota' %>
+    <%= f.input_field :inserto ,  class: 'nota', id:"inserto", placeholder: 'Escribe aqui el inserto' %>
+  </div>
+    <%= f.button :submit,"Guardar Nota", :class => "btn-primary"%>
+<% end %>

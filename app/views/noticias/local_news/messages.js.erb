@@ -1,0 +1,35 @@
+$(".modal-body").empty();
+$(".modal-body").html("<%= j render('messages') %>");
+$(".agregar").click(function() {
+  var a,priority;
+  a = $(this).parent().parent().find("td:nth-child(2)").html();
+  priority = <%= @notes_messages.priority.to_f + 0.1 %>;
+  link = $('#<%= dom_id(@notes_messages)%> td:nth-child(3)').html();
+   priority2 = parseFloat($('td#<%= dom_id(@notes_messages)%>').last().html());
+   if( priority === priority2)
+   {
+   	priority = parseFloat(priority + 0.1).toFixed(1);
+   	link = $('td#<%= dom_id(@notes_messages)%>').last().next().next().html();
+   	$("td#<%= dom_id(@notes_messages)%>").parent().last().after("<tr><td id=<%= dom_id(@notes_messages)%> >"+ priority+'</td><td >'+ a + '</td><td>'+ link +'</td></tr>');
+   	$("td#<%= dom_id(@notes_messages)%>").last().next().find("input:nth-child(2)").val(priority);
+   	$('td#<%= dom_id(@notes_messages)%>:lt(-1)').next().next().remove();
+   }
+   else{
+   		if(priority2 > priority )
+   		{
+   		priority = parseFloat(priority2 + 0.1).toFixed(1);
+   		link = $('td#<%= dom_id(@notes_messages)%>').last().next().next().html();
+   		$("td#<%= dom_id(@notes_messages)%>").parent().last().after("<tr><td id=<%= dom_id(@notes_messages)%> >"+ priority+'</td><td >'+ a + '</td><td>'+ link +'</td></tr>');
+   		$("td#<%= dom_id(@notes_messages)%>").last().next().find("input:nth-child(2)").val(priority);
+   		$('td#<%= dom_id(@notes_messages)%>:lt(-1)').next().next().remove();
+   		}
+   		else
+   		{
+   		$('#<%= dom_id(@notes_messages)%>').after("<tr><td id=<%= dom_id(@notes_messages)%>>"+ priority+'</td><td >'+ a + '</td><td>'+ link +'</td></tr>');
+  		$('#<%= dom_id(@notes_messages)%> td:nth-child(3) > a ').remove();
+   		}
+   	}
+
+  $("#NotaModal").modal('hide');
+});
+

@@ -1,0 +1,17 @@
+
+<%= simple_form_for([ :noticias, @notification ],remote: :true) do |f| %>
+  <div class="alerta"></div>
+  <div class="form-inputs">
+    <%= f.input :tipo , collection: [ "Comisíon"], prompt: "Tipo de Notificación" %>
+    <%= f.input :notified_user_id,collection: User.plaza(current_user.plaza_id).with_role(:reportero),prompt: "Selecciona Un Usuario" %>
+    <%= f.input :piority , collection: ["Alta","Media","Baja"], prompt: "Prioridad" %>
+    <%= f.input :fecha,input_html: { class: "fecha data-range", data:{ behaviour: "datepicker" } } ,as: :string %>
+    <%= f.input :title , spellcheck: "true" %>
+    <%= f.input :description,spellcheck: "true"%>
+    <%= f.hidden_field :realizada , value: :false %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit, :class => "btn-primary" %>
+  </div>
+<% end %>
+

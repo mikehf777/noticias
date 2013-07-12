@@ -1,0 +1,29 @@
+ <%= stylesheet_link_tag    "noticias/application" %>
+  <%= javascript_include_tag "noticias/application" %>
+  <%= csrf_meta_tags %>
+  <!-- start: Meta -->
+	    <meta charset="utf-8">
+   		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+	    <meta name="description" content="">
+	    <meta name="author" content="">
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	    <!-- end: Meta -->
+</head>
+<body>
+  <%= render 'layouts/noticias/menu' %>
+  <%= render 'layouts/noticias/sidebar' %>
+  
+    <div class="content">
+    <div class="wrapper-content">
+      <div class="conteiner-fluid">  
+        <%= render 'layouts/error' %>
+        <%= render 'layouts/noticias/modal' %>
+        <%= yield %>
+      </div>
+  </div>
+  </div>
+  <%= render 'layouts/footer' %>
+</body>
+</html>
+

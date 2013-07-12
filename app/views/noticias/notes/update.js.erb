@@ -1,0 +1,11 @@
+<% if @note.errors.any? %>
+  <% @note.errors.full_messages.each do |error| %>
+    $(".alerta").html('<div class="alert alert-error"><%= j( error ) %></div>');
+  <% end %>
+<% else %>
+$(".edit_note").fadeOut("slow");
+$(".alerta").html('<div class="alert alert-success">Nota creada correctamente</div>');
+$(".activetab").remove();
+$("#NotaModal").modal('hide');
+<% end %>
+

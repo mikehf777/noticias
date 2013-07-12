@@ -1,0 +1,12 @@
+<div class="nav-collapse subnav-collapse collapse ">
+	        <%= toggle_menu("Notificaciones","#noticas","#") %>
+	        <ul id="noticas" class="nav nav-list collapse">
+	            <li><%= menu("Nueva Notificacion",new_noticias_notification_path,"#") %></li>
+	            <li><%= menu('Enviar Comisiones',usuarios_comisionados_noticias_notifications_path, "#") %></li>
+	        </ul> 
+	        <%= toggle_menu("Noticiero Local","#local_news","#") %>
+	        <ul id="local_news" class="nav nav-list collapse">
+	        	 <li><%= menu('Noticieros de hoy',noticias_local_news_index_path, "#") %></li>
+	            <li><%= menu("Nuevo Noticiero",new_noticias_local_news_path,"#") %></li>
+	        </ul>    
+</div>	

@@ -1,0 +1,22 @@
+<h3>Sistema de Noticias </h3>
+<table  id="dinamica" class="table table-condensed responsive">
+  <thead>
+    <tr>
+    <th>Reportero</th>
+      <th> # Comisiones</th>
+      <th>Opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @reporteros.each do |reportero| %>
+  <% n = cantidad_notificaciones(reportero.id) %>
+  <tr>
+    <% if n > 0 %>
+   <td> <%= reportero.name %></td>
+   <td><%= n %></td>
+   <td><%= link_to "Enviar Comisiones", enviar_comisiones_noticias_notification_path(reportero),class: "btn" %></td>
+    <% end %>
+  </tr> 
+  <% end %>
+  </tbody>
+</table>

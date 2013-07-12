@@ -1,0 +1,35 @@
+<div class="page-header">
+  <%= link_to new_noticias_notification_path, :class => 'btn btn-primary' do %>
+    <i class="icon-plus icon-white"></i>
+    New Notification
+  <% end %>
+  <h1>Listing notifications</h1>
+</div>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Titulo</th>
+      <th>Descripcion</th>
+      <th>Tipo</th>
+      <th>Usuario Notificado</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+<% @notifications.each do |notification| %>
+    <tr>
+      <td><%= notification.title %></td>
+      <td><%= notification.description %></td>
+      <td><%= notification.tipo %></td>
+      <td><%= usuario(notification.notified_user_id)%></td>
+      <td><%= link_to 'Show', noticias_notification_path(notification) %></td>
+      <td><%= link_to 'Edit', edit_noticias_notification_path(notification) %></td>
+      <td><%= link_to 'Destroy', noticias_notification_path(notification), confirm: 'Are you sure?', method: :delete %></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>

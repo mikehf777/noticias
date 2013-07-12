@@ -1,0 +1,2 @@
+module Noticias::ResourceHelper
+end

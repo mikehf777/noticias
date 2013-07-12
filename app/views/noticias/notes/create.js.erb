@@ -1,0 +1,13 @@
+<% if @note.errors.any? %>
+  <% @note.errors.full_messages.each do |error| %>
+    $(".alerta").html('<div class="alert alert-error"><%= j( error ) %></div>');
+  <% end %>
+<% else %>
+
+<% notification_completed(@note.notification_id) if @note.notification_id %>
+$(".alerta").html('<div class="alert alert-success">Avance creadado correctamente</div>');
+//Limpia los campos despues de crear el avance
+$("#note_titulo").val("");
+$("#note_avance").val("");
+$(".advance_form").fadeOut("slow");
+<% end %>

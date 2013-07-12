@@ -1,0 +1,9 @@
+<% if @note.errors.any? %>
+  <% @note.errors.full_messages.each do |error| %>
+    $(".alerta").html('<div class="alert alert-error"><%= j( error ) %></div>');
+  <% end %>
+<% else %>
+$(".alerta").html('<div class="alert alert-success">Avance actualizada correctamente</div>');
+$("#NotaModal").modal('hide');
+<% end %>
+

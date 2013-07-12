@@ -1,0 +1,36 @@
+ <h1>Nota <%= @note.id %></h1>
+</div>
+
+<table class="table table-bordered table-striped">
+ 
+  <tbody>
+    <tr>
+    <th>Titulo</th>
+    <td><%= @note.titulo if @note.titulo %></td>
+    </tr>
+    <th>Avance</th>
+    <td><%= @note.avance if @note.avance %></td>
+    </tr>
+    <th>Reportero</th>
+    <td><%= @note.user.name if @note.user %></td>
+    </tr>
+    <th>Camarografo/Editor</th>
+    <td><%= usuario(@note.camarografo_id) if @note.camarografo_id%></td>
+    </tr>
+    <th>Fuente</th>
+    <td><%= @note.source.name if @note.source_id %></td>
+    </tr>
+    <th>Plaza</th>
+    <td><%=   @note.plaza.name if @note.plaza_id %></td>
+    </tr>
+    <th>Titulo Periodico</th>
+    <td><%=   @note.titulo_periodico if @note.titulo_periodico %></td>
+    </tr>
+    <th>Link</th>
+    <td><%=   @note.link if @note.link %></td>
+    </tr>
+    <th>Nota</th>
+    <td><%=   @note.content if @note.content  %></td>
+    </tr>
+  </tbody>
+</table>

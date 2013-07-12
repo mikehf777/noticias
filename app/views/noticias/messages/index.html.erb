@@ -1,0 +1,26 @@
+<div class="page-header">
+  <%= link_to  new_noticias_message_path, :class => 'btn btn-primary' do %>
+    <i class="icon-plus icon-white"></i>
+    Nuevo Mensaje
+  <% end %>
+  <h1>Mensajes</h1>
+</div>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Titulo</th>
+      <th>Opciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+<% @messages.each do |message| %>
+    <tr>
+      <td><%= message.title %></td>
+      <td><%= link_to 'Mostrar', noticias_message_path(message) %>
+      <%= link_to 'Editar', edit_noticias_message_path(message) %></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
